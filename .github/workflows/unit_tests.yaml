@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Unit Tests:
+  Unit_Tests:
     name: Unit Tests
     strategy:
       matrix:
