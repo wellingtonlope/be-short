@@ -8,10 +8,10 @@ services:
       dockerfile: Dockerfile
     environment:
       - APP_ENV=docker
-      - PORT=1323
+      - PORT=8080
       - LOG_LEVEL=debug
     ports:
-      - "1323:1323"
+      - "8080:8080"
     networks:
       - be-short-network
 networks:

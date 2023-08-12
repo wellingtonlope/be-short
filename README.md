@@ -2,6 +2,9 @@
 
 Documentation(Local): http://localhost:8080/swagger/index.html
 
+![Build](https://github.com/wellingtonlope/ticket-api/actions/workflows/build.yaml/badge.svg)
+![Coverage](https://img.shields.io/badge/Coverage-0%25-red)
+
 ## Usage
 You can use .env to set up the environment and start the http server with the following command:
 ```bash

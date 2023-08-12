@@ -14,7 +14,7 @@ import (
 	"github.com/wellingtonlope/be-short/pkg/log"
 )
 
-const ApplicationName = "be-short"
+const applicationName = "be-short"
 
 func main() {
 	e := echo.New()
@@ -36,7 +36,7 @@ func enableNewRelic(e *echo.Echo) {
 		return
 	}
 	newRelicApp, err := newrelic.NewApplication(
-		newrelic.ConfigAppName(fmt.Sprintf("%s.%s", os.Getenv("APP_ENV"), ApplicationName)),
+		newrelic.ConfigAppName(fmt.Sprintf("%s.%s", os.Getenv("APP_ENV"), applicationName)),
 		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
 		newrelic.ConfigAppLogForwardingEnabled(true),
 	)
