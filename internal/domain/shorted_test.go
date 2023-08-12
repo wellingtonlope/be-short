@@ -6,14 +6,13 @@ import (
 )
 
 func TestNewShorted(t *testing.T) {
-	url := "http://www.site.com"
 
 	t.Run("should open a valid url", func(t *testing.T) {
-		shorted, err := NewShorted(url)
+		shorted, err := NewShorted("http://www.site.com")
 
 		assert.Nil(t, err)
 		assert.NotNil(t, shorted)
-		assert.Equal(t, url, shorted.URL)
+		assert.Equal(t, "http://www.site.com", shorted.URL)
 
 	})
 

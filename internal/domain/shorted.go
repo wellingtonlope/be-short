@@ -37,10 +37,10 @@ func NewShorted(url string) (Shorted, error) {
 }
 
 func GenerateHash() string {
-	UrlSize := make([]byte, 6)
-	for i := range UrlSize {
-		UrlSize[i] = letters[rand.Intn(len(letters))]
+	hashSlice := make([]byte, 6)
+	for i := range hashSlice {
+		hashSlice[i] = letters[rand.Intn(len(letters))]
 	}
 
-	return string(UrlSize)
+	return string(hashSlice)
 }
