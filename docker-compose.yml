@@ -19,6 +19,8 @@ services:
     image: mongo:latest
     networks:
       - be-short-network
+    ports:
+      - "27017:27017"
 networks:
   be-short-network:
     driver: bridge

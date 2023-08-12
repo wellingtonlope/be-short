@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/wellingtonlope/be-short/internal/infra/mongo"
 	"net/http"
 	"os"
 
@@ -27,6 +28,16 @@ func main() {
 	e.GET("/ping", func(c echo.Context) error {
 		return c.String(http.StatusOK, "pong")
 	})
+
+	database, err := mongo.NewDatabase(os.Getenv("MONGO_URI"), os.Getenv("MONGO_DATABASE"))
+	if err != nil {
+		e.Logger.Fatalf("Error loading database: %v", err)
+	}
+
+	_, err = mongo.NewShorted(database)
+	if err != nil {
+		e.Logger.Fatalf("Error loading database: %v", err)
+	}
 
 	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }
