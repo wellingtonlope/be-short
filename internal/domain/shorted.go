@@ -11,7 +11,7 @@ const (
 )
 
 var (
-	ErrUrlIsInvalid = errors.New("url must not be invalid")
+	ErrUrlIsInvalid = errors.New("Url is invalid")
 )
 
 type Shorted struct {
