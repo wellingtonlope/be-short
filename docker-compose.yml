@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  be-short:
+    container_name: be-short
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - APP_ENV=docker
+      - PORT=8080
+      - LOG_LEVEL=debug
+    ports:
+      - "8080:8080"
+    networks:
+      - be-short-network
+networks:
+  be-short-network:
+    driver: bridge
