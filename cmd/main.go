@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/newrelic/go-agent/v3/integrations/logcontext-v2/nrlogrus"
-	"github.com/newrelic/go-agent/v3/integrations/nrecho-v4"
-	"github.com/newrelic/go-agent/v3/newrelic"
-	"github.com/sirupsen/logrus"
-	"github.com/wellingtonlope/be-short/pkg/log"
 	"net/http"
 	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
+	"github.com/newrelic/go-agent/v3/integrations/logcontext-v2/nrlogrus"
+	"github.com/newrelic/go-agent/v3/integrations/nrecho-v4"
+	"github.com/newrelic/go-agent/v3/newrelic"
+	"github.com/sirupsen/logrus"
+	"github.com/wellingtonlope/be-short/pkg/log"
 )
 
 const ApplicationName = "be-short"
@@ -41,7 +41,7 @@ func enableNewRelic(e *echo.Echo) {
 		newrelic.ConfigAppLogForwardingEnabled(true),
 	)
 	if err != nil {
-		e.Logger.Fatalf("Error loading newrelic: %v", err)
+		e.Logger.Errorf("Error loading newrelic: %v", err)
 	}
 	e.Use(nrecho.Middleware(newRelicApp))
 
