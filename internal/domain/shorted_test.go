@@ -24,7 +24,7 @@ func TestNewShorted(t *testing.T) {
 		assert.Equal(t, ErrUrlIsInvalid, err)
 	})
 
-	t.Run("should open a invalid url", func(t *testing.T) {
+	t.Run("should a invalid url", func(t *testing.T) {
 		shorted, err := NewShorted("www.site.com")
 
 		assert.Empty(t, shorted)
@@ -34,7 +34,7 @@ func TestNewShorted(t *testing.T) {
 }
 
 func TestGenerateHash(t *testing.T) {
-	t.Run("hash size", func(t *testing.T) {
+	t.Run("hash length", func(t *testing.T) {
 		hash := GenerateHash()
 		assert.Equal(t, 6, len(hash))
 	})
