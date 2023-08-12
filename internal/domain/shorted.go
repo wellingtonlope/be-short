@@ -3,6 +3,7 @@ package domain
 import (
 	"errors"
 	"math/rand"
+	"regexp"
 )
 
 const (
@@ -15,19 +16,22 @@ var (
 
 type Shorted struct {
 	Hash string
-	Url  string
+	URL  string
 }
 
-func NewShorted(Url string) (Shorted, error) {
-	if Url == "" {
+func NewShorted(url string) (Shorted, error) {
+
+	match, _ := regexp.MatchString("^(https?:\\/\\/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9])(:?\\d*)\\/?([a-z_\\/0-9\\#.]*)\\??([a-z_\\/0-9\\#=&]*)?$", url)
+
+	if !match {
 		return Shorted{}, ErrUrlIsInvalid
 	}
 
-	Hash := GenerateHash()
+	hash := GenerateHash()
 
 	return Shorted{
-		Hash: Hash,
-		Url:  Url,
+		Hash: hash,
+		URL:  url,
 	}, nil
 
 }
